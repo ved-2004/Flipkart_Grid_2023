@@ -110,16 +110,6 @@ def chat():
     
     return response
 
-# def run_freegpt(prompt):
-#     # This function uses the freeGPT model to generate a response
-#     async def main():
-#         try:
-#             resp = await getattr(freeGPT, "gpt3").Completion().create(prompt)
-#             return resp
-#         except Exception as e:
-#             return f"An error occurred: {e}"
-
-#     return run(main())
 
 def run_completion(prompt):
     completion = Completion()

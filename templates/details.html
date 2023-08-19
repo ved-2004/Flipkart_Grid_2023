@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/detail.css') }}">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="#" class="logo">E-Commerce Store</a>
+        </nav>
+    </header>
+    
+    <section class="product-details">
+        <div class="product-image">
+            <img src="{{ url_for('static', filename='dwImg/5.jpeg') }}" alt="Product Image">
+        </div>
+        <div class="product-info">
+            <h1>   Gents kurta for Wedding  </h1>
+            <p class="product-price">$12.2</p>
+            <p class="product-description">Introducing our exquisite Gents Kurta designed to elevate your style for wedding occasions. Crafted with a keen eye for detail and tailored to perfection, this kurta embodies timeless elegance and cultural charm. Whether you're the groom, a family member, or a guest, this kurta is the epitome of grace and sophistication.
+
+                Product Highlights:
+                
+                Design: Our Gents Kurta features a fusion of traditional and contemporary design elements, striking the perfect balance between classic and modern aesthetics. The intricate embroidery and embellishments add a regal touch, making it an ideal choice for weddings.
+                Fabric: Carefully selected premium fabric ensures comfort throughout the celebrations. The fabric's rich texture and subtle shine enhance the overall look, making you stand out with every step.
+                Color Palette: Available in a range of sophisticated colors, our kurta collection caters to various preferences and wedding themes. From deep royal hues to soft pastels, you'll find the perfect shade to complement the ambiance.
+                Fit and Silhouette: The tailored fit offers a flattering silhouette, ensuring you look your best while maintaining ease of movement. The kurta's elegant drape exudes confidence and charm.
+                Versatility: While perfect for weddings, our Gents Kurta also makes a versatile addition to your ethnic wardrobe. Pair it with churidar or trousers to create different looks for various occasions.
+                Attention to Detail: Every stitch, button, and embellishment is a testament to our commitment to quality. The intricate patterns and delicate craftsmanship reflect the dedication that went into creating this masterpiece.
+                Wear It With:
+                Pair this Gents Kurta with traditional juttis or mojaris, and accessorize with a statement brooch or a stylish pocket square for added flair. Complete your look with a coordinating stole or dupatta to exude grandeur.
+                
+                Experience the Elegance:
+                Our Gents Kurta for weddings captures the essence of celebration and cultural heritage. It's more than clothing; it's a piece of art that tells a story. Elevate your style and make a lasting impression on the most special occasions.
+                
+                Embrace the tradition, embody the style. Order your Gents Kurta for the wedding and make a statement that reflects your impeccable taste and appreciation for the finer things in life.</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <div class="chatbot-icon">
+           <a href="{{ url_for('chat_ui')}}"> <span class="material-icons">AI chat </span></a>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <p>&copy; 2023 E-Commerce Store. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Interface</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-window" id="chat-window">
+            <div class="chat-bubble bot-bubble">
+                <p>Welcome! How can I assist you today?</p>
+            </div>
+        </div>
+        <div class="user-input">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const chatWindow = document.getElementById('chat-window');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+
+        sendButton.addEventListener('click', () => {
+            const userMessage = userInput.value;
+            if (userMessage.trim() !== '') {
+                appendUserMessage(userMessage);
+                fetch('/chat', {
+                    method: 'POST',
+                    body: new URLSearchParams({ user_input: userMessage }),
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                })
+                .then(response => response.text())
+                .then(botMessage => appendBotMessage(botMessage))
+                .catch(error => console.error(error));
+
+                userInput.value = '';
+            }
+        });
+
+        function appendUserMessage(message) {
+            const userBubble = document.createElement('div');
+            userBubble.classList.add('chat-bubble', 'user-bubble');
+            userBubble.innerHTML = `<p>${message}</p>`;
+            chatWindow.appendChild(userBubble);
+        }
+
+        function appendBotMessage(message) {
+            const botBubble = document.createElement('div');
+            botBubble.classList.add('chat-bubble', 'bot-bubble');
+            botBubble.innerHTML = `<p>${message}</p>`;
+            chatWindow.appendChild(botBubble);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+    </script>
+</body>
+</html>
